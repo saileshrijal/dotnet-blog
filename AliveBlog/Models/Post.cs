@@ -8,5 +8,6 @@ namespace AliveBlog.Models
         public List<PostCategory>? PostCategories { get; set; }
         public string? FeaturedImageUrl { get; set; }
         public ApplicationUser? Author { get; set; }
+        public string? Slug { get; set; }
     }
 }
