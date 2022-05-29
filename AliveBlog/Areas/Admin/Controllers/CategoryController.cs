@@ -37,6 +37,10 @@ namespace AliveBlog.Areas.Admin.Controllers
                         Title = model.Title,
                         Description = model.Description
                     };
+                    if (category.Title != null)
+                    {
+                        category.Title = category.Title.Trim().ToLower();
+                    }
                     await _unitOfWork.Category.Create(category);
                     await _unitOfWork.SaveAsync();
                     TempData["Success"] = "Category Created Successfully!";
@@ -53,10 +57,10 @@ namespace AliveBlog.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Edit(Guid id)
         {
-            if (id == null)
-            {
-                return PartialView("_NotFoundAdmin");
-            }
+            // if (id == null)
+            // {
+            //     return PartialView("_NotFoundAdmin");
+            // }
             var category = await _unitOfWork.Category.GetBy(c => c.Id == id);
 
             if (category == null)
@@ -67,8 +71,13 @@ namespace AliveBlog.Areas.Admin.Controllers
             {
                 Id = category.Id,
                 Title = category.Title,
-                Description = category.Description
+                Description = category.Description,
+                InitialTitle = category.Title
             };
+            if (model.Title != null)
+            {
+                model.Title = model.Title.Trim().ToLower();
+            }
             return View(model);
         }
 
@@ -85,6 +94,10 @@ namespace AliveBlog.Areas.Admin.Controllers
                         Title = model.Title,
                         Description = model.Description
                     };
+                    if (category.Title != null)
+                    {
+                        category.Title = category.Title.Trim();
+                    }
                     _unitOfWork.Category.Edit(category);
                     await _unitOfWork.SaveAsync();
                     TempData["Success"] = "Category Updated Successfully";
@@ -96,6 +109,42 @@ namespace AliveBlog.Areas.Admin.Controllers
                 }
             }
             return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            try
+            {
+                var category = await _unitOfWork.Category.GetBy(c => c.Id == id);
+
+                if (category == null)
+                {
+                    return PartialView("_NotFoundAdmin");
+                }
+                await _unitOfWork.Category.Delete(id);
+                await _unitOfWork.SaveAsync();
+                TempData["Success"] = "Category Deleted Successfully";
+            }
+            catch (Exception ex)
+            {
+                TempData["Error"] = ex;
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
+
+        public async Task<IActionResult> VerifyCategoryName(string Title, string InitialTitle)
+        {
+            if (Title == InitialTitle)
+            {
+                return Json(true);
+            }
+            if (await _unitOfWork.Category.CheckExistBy(c => c.Title == Title.Trim().ToLower()))
+            {
+                return Json($"Category: {Title} already exists!");
+            }
+            return Json(true);
         }
     }
 }

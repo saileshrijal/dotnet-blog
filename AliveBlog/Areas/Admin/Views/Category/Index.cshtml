@@ -30,7 +30,7 @@
                     @foreach (var category in Model)
                     {
                         <tr>
-                            <td>
+                            <td class="text-capitalize">
                                 @category.Title
                             </td>
                             <td>
@@ -41,7 +41,12 @@
                                     <a class="btn btn-secondary" asp-area="Admin" asp-controller="Category"
                                     asp-action="Edit" asp-route-id="@category.Id"><i
                                         class="fa-solid fa-pen-to-square"></i></a>
-                                    <button class="btn btn-danger"><i class="fa-solid fa-trash"></i> </button>
+
+                                    <form method="post" id="deleteForm" asp-action="Delete" asp-route-id="@category.Id">
+                                        <button type="submit" id="btn-submit" class="btn btn-danger"><i
+                                            class="fa-solid fa-trash"></i>
+                                        </button>
+                                    </form>
                                 </div>
                             </td>
                         </tr>

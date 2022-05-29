@@ -13,6 +13,7 @@
                 <form method="post">
                     <div class="form-floating mb-3">
                         <input type="hidden" asp-for="Id">
+                        <input type="hidden" asp-for="InitialTitle">
                         <input type="text" asp-for="Title" class="form-control">
                         <label asp-for="Title" class="form-label"></label>
                         <span asp-validation-for="Title" class="text-danger"></span>
