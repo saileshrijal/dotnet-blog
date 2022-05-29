@@ -76,6 +76,10 @@
                             <li class="nav-item">
                                 <a class="nav-link" asp-action="Index" asp-controller="Contact">Contact Us</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Admin
+                                    Panel</a>
+                            </li>
                         </ul>
                         <ul class="navbar-nav mr-2">
                             <li class="nav-item">
@@ -180,7 +184,7 @@
     <script src="~/js/tether.min.js"></script>
     <script src="~/js/bootstrap.min.js"></script>
     <script src="~/js/custom.js"></script>
-
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 
 </html>

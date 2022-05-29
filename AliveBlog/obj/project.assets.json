@@ -9875,11 +9875,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\AliveCoder\\Dotnet\\dotnet-blog\\AliveBlog\\AliveBlog.csproj",
+      "projectUniqueName": "d:\\AliveCoder\\Dotnet\\dotnet-blog\\AliveBlog\\AliveBlog.csproj",
       "projectName": "AliveBlog",
-      "projectPath": "D:\\AliveCoder\\Dotnet\\dotnet-blog\\AliveBlog\\AliveBlog.csproj",
+      "projectPath": "d:\\AliveCoder\\Dotnet\\dotnet-blog\\AliveBlog\\AliveBlog.csproj",
       "packagesPath": "C:\\Users\\Sailesh Rijal\\.nuget\\packages\\",
-      "outputPath": "D:\\AliveCoder\\Dotnet\\dotnet-blog\\AliveBlog\\obj\\",
+      "outputPath": "d:\\AliveCoder\\Dotnet\\dotnet-blog\\AliveBlog\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

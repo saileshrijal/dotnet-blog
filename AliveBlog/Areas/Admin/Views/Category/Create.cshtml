@@ -1,0 +1,49 @@
+@model AliveBlog.ViewModels.CategoryViewModel
+@{
+    ViewData["Title"] = "New Category";
+}
+
+<div class="m-2">
+    <div class="card shadow">
+        <div class="card-header">
+            <h2 class="card-title">New Category</h2>
+        </div>
+        <div class="card-body">
+            <div>
+                <form method="post">
+                    <div class="form-floating mb-3">
+                        <input type="text" asp-for="Title" class="form-control">
+                        <label asp-for="Title" class="form-label"></label>
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Description" class="form-label"></label>
+                        <textarea asp-for="Description" class="form-control" id="editor"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <input type="submit" value="Save" class="btn btn-success form-control" />
+                            </div>
+                            <div class="col-md-3">
+                                <a asp-action="Index" asp-controller="Category" asp-area="Admin"
+                                    class="btn btn-secondary form-control">Go
+                                    Back</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+<partial name="_ValidationScriptsPartial" />
+<script>
+    CKEDITOR.replace('editor');
+</script>
+}
