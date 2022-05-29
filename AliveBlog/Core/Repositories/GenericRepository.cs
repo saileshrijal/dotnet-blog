@@ -52,7 +52,7 @@ namespace AliveBlog.Core.Repository
 
         public async Task<T?> GetBy(Expression<Func<T, bool>> predicate)
         {
-            return await entities.FindAsync(predicate);
+            return await entities.FirstOrDefaultAsync(predicate);
         }
         public int TotalCount()
         {

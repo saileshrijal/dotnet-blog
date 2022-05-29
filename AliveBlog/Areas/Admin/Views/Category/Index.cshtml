@@ -38,7 +38,8 @@
                             </td>
                             <td>
                                 <div class="btn-group float-end">
-                                    <a class="btn btn-secondary" asp-action="Edit"><i
+                                    <a class="btn btn-secondary" asp-area="Admin" asp-controller="Category"
+                                    asp-action="Edit" asp-route-id="@category.Id"><i
                                         class="fa-solid fa-pen-to-square"></i></a>
                                     <button class="btn btn-danger"><i class="fa-solid fa-trash"></i> </button>
                                 </div>
