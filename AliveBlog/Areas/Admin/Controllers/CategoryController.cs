@@ -1,0 +1,10 @@
+using Microsoft.AspNetCore.Mvc;
+
+namespace AliveBlog.Areas.Admin.Controllers
+{
+    [Area("Admin")]
+    public class CategoryController : Controller
+    {
+
+    }
+}
