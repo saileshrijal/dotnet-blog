@@ -9,5 +9,7 @@ namespace AliveBlog.Models
         public string? FeaturedImageUrl { get; set; }
         public ApplicationUser? Author { get; set; }
         public string? Slug { get; set; }
+        public bool IsPublished { get; set; }
+        public DateTime PublishedOn { get; set; }
     }
 }
