@@ -1,0 +1,55 @@
+@model List<Post>
+
+@{
+    ViewData["Title"] = "List of Posts";
+}
+
+<div class="m-2">
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-9">
+                    <h2 class="card-title">@ViewData["Title"]</h2>
+                </div>
+                <div class="col-3">
+                    <a asp-action="Create" class="btn btn-success float-end"><i class="fa fa-random"></i> New Post</a>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            @foreach (var post in Model)
+            {
+                <div class="card shadow mb-2">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-1">
+                                @if (post.FeaturedImageUrl != null)
+                                {
+                                    <img src="~/FeaturedImages/@post.FeaturedImageUrl"
+                                style="height: 100%; width: 100%; object-fit: cover; object-position: center;">
+                                }
+                                else
+                                {
+                                    <img src="~/FeaturedImages/DefaultFeaturedImage.jpg" class="img-fluid"
+                                style="height: 100%; width: 100%; object-fit: cover; object-position: center;">
+                                }
+                            </div>
+                            <div class="col-8">
+                                <h6 class="pb-2">@post.Title</h6>
+                                <p class="text-secondary">
+                                    <span>@(post.IsPublished?"Published":"Draft") - @post.PublishedOn</span>
+                                    @foreach (var category in post.PostCategories)
+                                    {
+                                        <span class="mx-1 p-1 text-capitalize"
+                                    style="border: 2px solid lightcoral; color: lightcoral; border-radius: 10px;">@category.Category.Title</span>
+                                    }
+                                </p>
+                            </div>
+                            <div class="col-2"></div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

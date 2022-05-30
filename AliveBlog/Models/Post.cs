@@ -7,9 +7,10 @@ namespace AliveBlog.Models
         public string? Description { get; set; }
         public List<PostCategory>? PostCategories { get; set; }
         public string? FeaturedImageUrl { get; set; }
+        public string? AuthorId { get; set; }
         public ApplicationUser? Author { get; set; }
         public string? Slug { get; set; }
         public bool IsPublished { get; set; }
-        public DateTime PublishedOn { get; set; }
+        public DateTime PublishedOn { get; set; } = DateTime.Now;
     }
 }

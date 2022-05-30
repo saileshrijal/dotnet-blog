@@ -12,7 +12,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Dashboard - Alive Blog</title>
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="~/images/favicon.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link href="~/css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
@@ -68,6 +68,10 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-random"></i></div>
                             Category
                         </a>
+                        <a class="nav-link" asp-area="Admin" asp-controller="Post" asp-action="Index">
+                            <div class="sb-nav-link-icon"><i class="fas fa-file"></i></div>
+                            Post
+                        </a>
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">
@@ -79,18 +83,13 @@
         <div id="layoutSidenav_content">
 
             @RenderBody()
-
-            <footer class="py-4 bg-light mt-auto">
+            @*
+                <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid px-4">
-                    <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">Copyright &copy; Your Website 2022</div>
-                        <div>
-                            <a href="#">Privacy Policy</a>
-                            &middot;
-                            <a href="#">Terms &amp; Conditions</a>
-                        </div>
-                    </div>
+                <div class="d-flex align-items-center justify-content-center">
+                <div class="text-muted">Copyright &copy; Alive Blog</div>
                 </div>
+                </div> *@
             </footer>
         </div>
     </div>
