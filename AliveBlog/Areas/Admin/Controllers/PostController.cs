@@ -59,7 +59,9 @@ namespace AliveBlog.Areas.Admin.Controllers
                         Title = model.Title,
                         Description = model.Description,
                         AuthorId = userId,
-                        IsPublished = model.IsPublished
+                        IsPublished = model.IsPublished,
+                        Excerpt = model.Excerpt,
+                        IsBanner = model.IsBanner
                     };
                     if (model.FeaturedPhoto != null)
                     {
@@ -68,8 +70,8 @@ namespace AliveBlog.Areas.Admin.Controllers
                     if (model.Title != null)
                     {
                         string slug = model.Title.Trim();
-                        slug.Replace(" ", "-");
-                        post.Slug = slug + "_" + Guid.NewGuid();
+                        slug = slug.Replace(" ", "-");
+                        post.Slug = slug + "-" + Guid.NewGuid();
                     }
                     post.PostCategories = new List<PostCategory>();
                     foreach (var categoryId in selectedCateogries)

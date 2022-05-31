@@ -7,5 +7,7 @@ namespace AliveBlog.Core.IRepositories
     {
         Task<Post?> GetWithCategoriesBy(Expression<Func<Post, bool>> predicate);
         Task<List<Post>> GetAllWithCategories(string UserId);
+        Task<List<Post>> GetAllBlogs();
+        Task<List<Post>> GetAllBlogsForBanner();
     }
 }

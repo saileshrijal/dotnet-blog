@@ -22,5 +22,11 @@ namespace AliveBlog.ViewModels
         [Display(Name = "Published On")]
         public DateTime PublishedOn { get; set; } = DateTime.Now;
         public List<SelectListItem>? Categories { get; set; }
+
+        [Required]
+        public string? Excerpt { get; set; }
+
+        [Display(Name = "Banner")]
+        public bool IsBanner { get; set; }
     }
 }

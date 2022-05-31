@@ -22,7 +22,22 @@ namespace AliveBlog.Core.Repositories
         }
         public async Task<Post?> GetWithCategoriesBy(Expression<Func<Post, bool>> predicate)
         {
-            return await _context.Posts.Include(c => c.PostCategories).ThenInclude(c => c.Category).FirstOrDefaultAsync(predicate);
+            return await _context.Posts.Include(c => c.PostCategories).ThenInclude(c => c.Category).Include(c => c.Author).FirstOrDefaultAsync(predicate);
+        }
+
+        public async Task<List<Post>> GetAllBlogs()
+        {
+            return await _context.Posts.Where(p => p.IsPublished == true).Include(p => p.PostCategories).ThenInclude(p => p.Category).OrderByDescending(f => f.PublishedOn).Include(p => p.Author).ToListAsync();
+        }
+
+        public async Task<List<Post>> GetAllBlogsForBanner()
+        {
+            return await _context.Posts.Where(p => p.IsPublished == true && p.IsBanner == true).Include(p => p.PostCategories).ThenInclude(p => p.Category).OrderByDescending(f => f.PublishedOn).Include(p => p.Author).ToListAsync();
+        }
+
+        public async Task<List<Post>> GetAllBlogsForCategoryPage(Guid categoryId)
+        {
+            return await _context.Posts.Include(p => p.PostCategories).ThenInclude(p => p.Category).OrderByDescending(f => f.PublishedOn).Include(p => p.Author).Where(p => p.IsPublished == true).ToListAsync();
         }
     }
 }

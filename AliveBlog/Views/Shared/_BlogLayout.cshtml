@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Site Metas -->
-    <title>Alive Blog</title>
+    <title>@ViewData["Title"] - Alive Blog</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -57,7 +57,7 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <a class="navbar-brand" asp-action="Index" asp-controller="Home"><img
-                            src="images/version/tech-logo.png" height="40" alt=""></a>
+                            src="~/images/version/tech-logo.png" height="40" alt=""></a>
                     <div class="collapse navbar-collapse" id="navbarCollapse">
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item">
@@ -65,13 +65,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="tech-category-01.html">Gadgets</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="tech-category-02.html">Videos</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="tech-category-03.html">Reviews</a>
+                                <a class="nav-link" asp-controller="Blog" asp-action="Index">Blog</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" asp-action="Index" asp-controller="Contact">Contact Us</a>
