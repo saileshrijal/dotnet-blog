@@ -1,0 +1,93 @@
+@model AliveBlog.ViewModels.UserViewModel
+
+@{
+    ViewData["Title"] = "My Profile";
+}
+
+<div class="m-2">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title">@ViewData["Title"]</h4>
+        </div>
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data">
+                <input type="hidden" asp-for="UserId">
+                <input type="hidden" asp-for="Password">
+                <input type="hidden" asp-for="Email">
+                <input type="hidden" asp-for="ProfilePictureUrl">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <div>
+                                    <label asp-for="FirstName"></label>
+                                    <input type="text" class="form-control" asp-for="FirstName">
+                                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div>
+                                    <label asp-for="LastName"></label>
+                                    <input type="text" class="form-control" asp-for="LastName">
+                                    <span asp-validation-for="LastName" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="AboutMe"></label>
+                            <textarea class="form-control" asp-for="AboutMe" rows="4"></textarea>
+                            <span asp-validation-for="AboutMe" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Email"></label>
+                            <input type="email" class="form-control" asp-for="Email" disabled>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="NewPassword"></label>
+                            <input type="password" class="form-control" asp-for="NewPassword">
+                            <span asp-validation-for="NewPassword" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <div class="row">
+                                <div class="col-9">
+                                    <input type="submit" value="Save" class="form-control btn btn-success">
+                                </div>
+                                <div class="col-3">
+                                    <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index"
+                                        class="btn btn-secondary form-control">Go Back</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="mb-3">
+                            <input type="file" class="form-control" asp-for="ProfilePicture"
+                                onchange="document.getElementById('previewImage').src = window.URL.createObjectURL(this.files[0])">
+                            <span asp-validation-for="ProfilePicture" class="text-danger"></span>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h6 class="card-title"><label asp-for="ProfilePicture"></label>
+                                </h6>
+                            </div>
+                            @if (Model.ProfilePictureUrl == null || Model.ProfilePictureUrl == "")
+                            {
+                                <img src="~/UserProfileImages/DefaultUser.jpg" alt="" id="previewImage">
+                            }
+                            else
+                            {
+                                <img src="~/UserProfileImages/@Model.ProfilePictureUrl" alt="" id="previewImage">
+                            }
+                        </div>
+
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+<partial name="_ValidationScriptsPartial" />
+}

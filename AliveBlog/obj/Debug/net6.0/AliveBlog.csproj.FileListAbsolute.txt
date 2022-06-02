@@ -3,7 +3,6 @@ d:\AliveCoder\Dotnet\dotnet-blog\AliveBlog\obj\Debug\net6.0\AliveBlog.GeneratedM
 d:\AliveCoder\Dotnet\dotnet-blog\AliveBlog\obj\Debug\net6.0\AliveBlog.AssemblyInfoInputs.cache
 d:\AliveCoder\Dotnet\dotnet-blog\AliveBlog\obj\Debug\net6.0\AliveBlog.AssemblyInfo.cs
 d:\AliveCoder\Dotnet\dotnet-blog\AliveBlog\obj\Debug\net6.0\AliveBlog.csproj.CoreCompileInputs.cache
-d:\AliveCoder\Dotnet\dotnet-blog\AliveBlog\obj\Debug\net6.0\AliveBlog.MvcApplicationPartsAssemblyInfo.cs
 d:\AliveCoder\Dotnet\dotnet-blog\AliveBlog\obj\Debug\net6.0\AliveBlog.MvcApplicationPartsAssemblyInfo.cache
 d:\AliveCoder\Dotnet\dotnet-blog\AliveBlog\obj\Debug\net6.0\AliveBlog.RazorAssemblyInfo.cache
 d:\AliveCoder\Dotnet\dotnet-blog\AliveBlog\obj\Debug\net6.0\AliveBlog.RazorAssemblyInfo.cs
@@ -22,7 +21,6 @@ D:\AliveCoder\Dotnet\dotnet-blog\AliveBlog\bin\Debug\net6.0\Microsoft.AspNetCore
 D:\AliveCoder\Dotnet\dotnet-blog\AliveBlog\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 D:\AliveCoder\Dotnet\dotnet-blog\AliveBlog\bin\Debug\net6.0\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
 D:\AliveCoder\Dotnet\dotnet-blog\AliveBlog\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
-D:\AliveCoder\Dotnet\dotnet-blog\AliveBlog\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.UI.dll
 D:\AliveCoder\Dotnet\dotnet-blog\AliveBlog\bin\Debug\net6.0\Microsoft.AspNetCore.Razor.Language.dll
 D:\AliveCoder\Dotnet\dotnet-blog\AliveBlog\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
 D:\AliveCoder\Dotnet\dotnet-blog\AliveBlog\bin\Debug\net6.0\Microsoft.Build.Locator.dll
@@ -49,7 +47,6 @@ D:\AliveCoder\Dotnet\dotnet-blog\AliveBlog\bin\Debug\net6.0\Microsoft.EntityFram
 D:\AliveCoder\Dotnet\dotnet-blog\AliveBlog\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
 D:\AliveCoder\Dotnet\dotnet-blog\AliveBlog\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
 D:\AliveCoder\Dotnet\dotnet-blog\AliveBlog\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
-D:\AliveCoder\Dotnet\dotnet-blog\AliveBlog\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Embedded.dll
 D:\AliveCoder\Dotnet\dotnet-blog\AliveBlog\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
 D:\AliveCoder\Dotnet\dotnet-blog\AliveBlog\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
 D:\AliveCoder\Dotnet\dotnet-blog\AliveBlog\bin\Debug\net6.0\Microsoft.Identity.Client.dll
@@ -270,3 +267,6 @@ D:\AliveCoder\Dotnet\dotnet-blog\AliveBlog\obj\Debug\net6.0\refint\AliveBlog.dll
 D:\AliveCoder\Dotnet\dotnet-blog\AliveBlog\obj\Debug\net6.0\AliveBlog.pdb
 D:\AliveCoder\Dotnet\dotnet-blog\AliveBlog\obj\Debug\net6.0\AliveBlog.genruntimeconfig.cache
 D:\AliveCoder\Dotnet\dotnet-blog\AliveBlog\obj\Debug\net6.0\ref\AliveBlog.dll
+D:\AliveCoder\Dotnet\dotnet-blog\AliveBlog\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.UI.dll
+D:\AliveCoder\Dotnet\dotnet-blog\AliveBlog\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Embedded.dll
+D:\AliveCoder\Dotnet\dotnet-blog\AliveBlog\obj\Debug\net6.0\AliveBlog.MvcApplicationPartsAssemblyInfo.cs

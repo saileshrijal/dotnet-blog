@@ -90,13 +90,5 @@
 <partial name="_ValidationScriptsPartial" />
 <script>
     CKEDITOR.replace('editor').config.height = 200;
-
-    inputImage.onchange = evt => {
-  const [file] = inputImage.files
-  if (file) {
-    document.getElemntById("imagePreviewCard").classList.Remove("d-none");
-    previewImage.src = URL.createObjectURL(file)
-  }
-}
 </script>
 }

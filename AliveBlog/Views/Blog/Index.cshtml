@@ -77,7 +77,8 @@
                                             {
                                                 if (i < 1)
                                                 {
-                                                    <a href="tech-category.html" title="">
+                                                    <a asp-area="" asp-controller="Blog" asp-action="Category"
+                                            asp-route-title=@category.Category.Title title="">
                                                         @category.Category.Title
                                                     </a>
                                                 }
@@ -86,7 +87,7 @@
                                             }
                                         </small>
                                         <small><a title="">@post.PublishedOn</a></small>
-                                        <small><a title="">@post.Author.Email</a></small>
+                                        <small><a title="">@post.Author.FullName</a></small>
                                     </div><!-- end meta -->
                             </div><!-- end blog-box -->
                                 <hr class="invis">

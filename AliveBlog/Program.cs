@@ -1,18 +1,26 @@
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using AliveBlog.Data;
 using AliveBlog.Models;
 using AliveBlog.Core.IConfiguration;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
+
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<ApplicationUser>()
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
+
 builder.Services.AddControllersWithViews();
+
+builder.Services.ConfigureApplicationCookie(options =>
+    {
+        options.LoginPath = "/Login";
+    });
 
 builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 
@@ -27,7 +35,6 @@ else
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
 }
-
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
@@ -43,6 +50,5 @@ app.MapControllerRoute(
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-app.MapRazorPages();
 
 app.Run();

@@ -41,13 +41,14 @@
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
                     aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#!">Settings</a></li>
+                    <li><a class="dropdown-item" asp-area="Admin" asp-controller="User" asp-action="Profile">My
+                            Profile</a></li>
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
                     <li><button type="button" class="dropdown-item" onclick="$('#logoutForm').submit()">Logout</button>
-                        <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout"
-                            asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                        <form id="logoutForm" class="form-inline" asp-area="Admin" asp-controller="User"
+                            asp-action="Logout">
                         </form>
                     </li>
                 </ul>
@@ -72,11 +73,15 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-file"></i></div>
                             Post
                         </a>
+                        <a class="nav-link" asp-area="Admin" asp-controller="User" asp-action="Index">
+                            <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                            Users
+                        </a>
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">
                     <div class="small">Logged in as:</div>
-                    @User.Identity?.Name
+                    @UserManager.Users.FirstOrDefault(u=>u.UserName==User.Identity.Name).FullName
                 </div>
             </nav>
         </div>
@@ -105,8 +110,8 @@
     <script src="https://cdn.ckeditor.com/4.19.0/standard/ckeditor.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <partial name="_Notification" />
     @await RenderSectionAsync("Scripts", required: false)
+    <partial name="_Notification" />
 </body>
 
 </html>

@@ -6,6 +6,7 @@ namespace AliveBlog.Core.IConfiguration
     {
         ICategoryRepository Category { get; }
         IPostRepository Post { get; }
+        IPostCategoryRepository PostCategory { get; }
         Task SaveAsync();
     }
 }

@@ -1,0 +1,60 @@
+@model AliveBlog.ViewModels.UserViewModel
+
+@{
+    ViewData["Title"] = "New User";
+}
+
+<div class="m-2">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title">@ViewData["Title"]</h4>
+        </div>
+        <div class="card-body">
+            <div>
+                <form method="post">
+                    <div class="row">
+                        <div class="col-9 mx-auto">
+                            <div>
+                                <div class="mb-3">
+                                    <label asp-for="FirstName"></label>
+                                    <input type="text" asp-for="FirstName" class="form-control">
+                                    <span asp-validation-for="FirstName"></span>
+                                </div>
+                                <div class="mb-3">
+                                    <label asp-for="LastName"></label>
+                                    <input type="text" asp-for="LastName" class="form-control">
+                                    <span asp-validation-for="LastName"></span>
+                                </div>
+                                <div class="mb-3">
+                                    <label asp-for="Email"></label>
+                                    <input type="email" asp-for="Email" class="form-control">
+                                    <span asp-validation-for="Email"></span>
+                                </div>
+                                <div class="mb-3">
+                                    <label asp-for="Password"></label>
+                                    <input type="password" asp-for="Password" class="form-control">
+                                    <span asp-validation-for="Password"></span>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-9">
+                                        <input type="submit" value="Save" class="btn btn-success form-control">
+                                    </div>
+                                    <div class="col-3">
+                                        <a asp-area="Admin" asp-controller="User" asp-action="Index"
+                                            class="btn btn-secondary form-control">Go Back</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+<partial name="_ValidationScriptsPartial" />
+}

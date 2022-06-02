@@ -25,7 +25,7 @@
                                 <span class="bg-orange"><a href="tech-category-01.html" title="">Technology</a></span>
                                 <h4><a asp-area="" asp-controller="Blog" asp-action="Post" asp-route-slug="@post.Slug">@post.Title</a></h4>
                                 <small><a >@post.PublishedOn</a></small>
-                                <small><a >@post.Author.UserName</a></small>
+                                <small><a >@post.Author.FullName</a></small>
                             </div><!-- end meta -->
                         </div><!-- end shadow-desc -->
                     </div><!-- end shadow -->
@@ -83,7 +83,7 @@
                                                 break;
                                             }
                                     <small><a>@post.PublishedOn</a></small>
-                                    <small><a>@post.Author.UserName</a></small>
+                                    <small><a>@post.Author.FullName</a></small>
                                 </div><!-- end meta -->
                         </div><!-- end blog-box -->
                         <hr class="invis">
