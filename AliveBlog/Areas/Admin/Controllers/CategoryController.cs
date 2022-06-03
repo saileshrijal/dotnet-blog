@@ -1,11 +1,13 @@
 using AliveBlog.Core.IConfiguration;
 using AliveBlog.Models;
 using AliveBlog.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AliveBlog.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class CategoryController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -57,10 +59,10 @@ namespace AliveBlog.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Edit(Guid id)
         {
-            // if (id == null)
-            // {
-            //     return PartialView("_NotFoundAdmin");
-            // }
+            if (id == null)
+            {
+                return PartialView("_NotFoundAdmin");
+            }
             var category = await _unitOfWork.Category.GetBy(c => c.Id == id);
 
             if (category == null)
@@ -73,6 +75,7 @@ namespace AliveBlog.Areas.Admin.Controllers
                 Title = category.Title,
                 Description = category.Description,
                 InitialTitle = category.Title
+
             };
             if (model.Title != null)
             {
