@@ -16,7 +16,7 @@ namespace AliveBlog.Core.Repositories
         }
         public async Task<List<PostCategory>> GetAllBlogForCategory(string category)
         {
-            return await _context.PostCategories.Include(pc => pc.Post).Where(pc => pc.Category.Title == category).ToListAsync();
+            return await _context.PostCategories.Include(pc => pc.Post).ThenInclude(pc => pc.Author).Include(pc => pc.Post).ThenInclude(pc => pc.PostCategories).ThenInclude(pc => pc.Category).Where(pc => pc.Category.Title == category).ToListAsync();
         }
     }
 }

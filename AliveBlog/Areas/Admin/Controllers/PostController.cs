@@ -157,8 +157,8 @@ namespace AliveBlog.Areas.Admin.Controllers
                     IsBanner = model.IsBanner,
                     IsPublished = model.IsPublished,
                     Slug = model.Slug,
-                    AuthorId = userId
-
+                    AuthorId = userId,
+                    Description = model.Description
                 };
 
                 if (model.FeaturedPhoto == null)
@@ -195,6 +195,24 @@ namespace AliveBlog.Areas.Admin.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            if (id == null)
+            {
+                return PartialView("_NotFoundAdmin");
+            }
+            var post = await _unitOfWork.Post.GetBy(P => P.Id == id);
+            if (post == null)
+            {
+                return PartialView("_NotFoundAdmin");
+            }
+            await _unitOfWork.Post.Delete(id);
+            await _unitOfWork.SaveAsync();
+            TempData["Success"] = "Post deleted successfully";
+            return RedirectToAction(nameof(Index));
         }
 
         private string photoUpload(PostViewModel model)

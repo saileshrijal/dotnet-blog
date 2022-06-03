@@ -33,5 +33,17 @@ namespace AliveBlog.Controllers
             }
             return View(post);
         }
+
+        [Route("Category/{category}")]
+        public async Task<IActionResult> Category(string? category)
+        {
+            if (category == null)
+            {
+                return PartialView("_NotFoundBlog");
+            }
+            var posts = await _unitOfWork.PostCategory.GetAllBlogForCategory(category);
+            ViewData["Category"] = category;
+            return View(posts);
+        }
     }
 }

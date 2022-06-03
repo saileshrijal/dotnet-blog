@@ -47,6 +47,11 @@
                             </div>
                             <div class="col-1 d-flex align-items-center justify-content-end">
                                 <div class="btn-group">
+                                    @if (post.IsPublished)
+                                    {
+                                        <a class="btn btn-info" asp-area="" asp-controller="Blog" asp-action="Post"
+                                    asp-route-slug="@post.Slug" target="_blank"><i class="fa-solid fa-eye"></i></a>
+                                    }
                                     <a class="btn btn-secondary" asp-area="Admin" asp-controller="Post" asp-action="Edit"
                                     asp-route-id="@post.Id"><i class="fa-solid fa-pen-to-square"></i></a>
 

@@ -1,4 +1,4 @@
-@model List<Post>
+@model List<PostCategory>
 @{
     ViewData["Title"] = "Blog";
 }
@@ -8,15 +8,16 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                    <h2><i class="fa fa-play bg-orange"></i> Blog <small
-                            class="hidden-xs-down hidden-sm-down">Collections of Blogs
+                    <h2 class="text-capitalize"><i class="fa fa-play bg-orange"></i>@ViewData["Category"] <small
+                            class="hidden-xs-down hidden-sm-down">Collections of Blogs regarding @ViewData["Category"]
                         </small></h2>
                 </div><!-- end col -->
                 <div class="col-lg-4 col-md-4 col-sm-12 hidden-xs-down hidden-sm-down">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="breadcrumb-item"><a asp-area="" asp-controller="Blog" asp-action="Index">Blog</a>
+                        <li class="breadcrumb-item text-capitalize"><a asp-controller="Blog" asp-action="Category"
+                                asp-route-category="@ViewData["Category"]">@ViewData["Category"]</a>
                         </li>
                         <li class="breadcrumb-item active">Index</li>
                     </ol>
@@ -35,10 +36,12 @@
                             {
                                 <div class="blog-box">
                                     <div class="post-media">
-                                        <a asp-area="" asp-controller="Blog" asp-action="Post" asp-route-slug=@post.Slug>
-                                            @if (post.FeaturedImageUrl != null)
+                                        <a asp-area="" asp-controller="Blog" asp-action="Post"
+                                        asp-route-slug=@post.Post.Slug>
+                                            @if (post.Post.FeaturedImageUrl != null)
                                             {
-                                                <img src="~/FeaturedImages/@post.FeaturedImageUrl" alt="" class="img-fluid">
+                                                <img src="~/FeaturedImages/@post.Post.FeaturedImageUrl" alt=""
+                                            class="img-fluid">
                                             }
                                             else
                                             {
@@ -67,18 +70,18 @@
                                             </ul>
                                         </div><!-- end post-sharing -->
                                     <h4><a asp-area="" asp-controller="Blog" asp-action="Post"
-                                            asp-route-slug="@post.Slug" title="">@post.Title</a></h4>
-                                        <p>@post.Excerpt</p>
+                                            asp-route-slug="@post.Post.Slug" title="">@post.Post.Title</a></h4>
+                                        <p>@post.Post.Excerpt</p>
                                         <small>
                                             @{
                                                 int i = 0;
                                             }
-                                            @foreach (var category in post.PostCategories)
+                                            @foreach (var category in post.Post.PostCategories)
                                             {
                                                 if (i < 1)
                                                 {
                                                     <a asp-area="" asp-controller="Blog" asp-action="Category"
-                                            asp-route-category="@category.Category.Title" title="">
+                                            asp-route-title=@category.Category.Title title="">
                                                         @category.Category.Title
                                                     </a>
                                                 }
@@ -86,8 +89,8 @@
                                                 break;
                                             }
                                         </small>
-                                        <small><a title="">@post.PublishedOn</a></small>
-                                        <small><a title="">@post.Author.FullName</a></small>
+                                        <small><a title="">@post.Post.PublishedOn</a></small>
+                                        <small><a title="">@post.Post.Author.FullName</a></small>
                                     </div><!-- end meta -->
                             </div><!-- end blog-box -->
                                 <hr class="invis">
@@ -116,7 +119,7 @@
                         <div class="widget">
                             <div class="banner-spot clearfix">
                                 <div class="banner-img">
-                                    <img src="upload/banner_07.jpg" alt="" class="img-fluid">
+                                    <img src="~/upload/banner_07.jpg" alt="" class="img-fluid">
                                 </div><!-- end banner-img -->
                             </div><!-- end banner -->
                         </div><!-- end widget -->

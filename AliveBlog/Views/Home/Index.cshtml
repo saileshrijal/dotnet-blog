@@ -22,7 +22,21 @@
                     <div class="shadoweffect">
                         <div class="shadow-desc">
                             <div class="blog-meta">
-                                <span class="bg-orange"><a href="tech-category-01.html" title="">Technology</a></span>
+                                <span class="bg-orange">
+                                     @{
+                                                int i = 0;
+                                            }
+                                            @foreach (var category in post.PostCategories)
+                                            {
+                                                if (i < 1)
+                                                {
+                                                    <a class="bg-orange text-uppercase" title="@category.Category.Title" asp-controller="Blog" asp-action="Category"
+                                        asp-route-category="@category.Category.Title">@category.Category.Title</a>
+                                                }
+                                                i++;
+                                                break;
+                                            }
+                                    </span>
                                 <h4><a asp-area="" asp-controller="Blog" asp-action="Post" asp-route-slug="@post.Slug">@post.Title</a></h4>
                                 <small><a >@post.PublishedOn</a></small>
                                 <small><a >@post.Author.FullName</a></small>
@@ -77,7 +91,8 @@
                                             {
                                                 if (i < 1)
                                                 {
-                                                    <small class="firstsmall"><a class="bg-orange" title="@category.Category.Title">@category.Category.Title</a></small>
+                                                    <small class="firstsmall"><a class="bg-orange" title="@category.Category.Title" asp-controller="Blog" asp-action="Category"
+                                        asp-route-category="@category.Category.Title">@category.Category.Title</a></small>
                                                 }
                                                 i++;
                                                 break;

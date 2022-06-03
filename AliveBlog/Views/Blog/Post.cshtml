@@ -1,4 +1,10 @@
 @model Post
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+
 <div id="wrapper">
     <section class="section single-wrapper">
         <div class="container">
@@ -18,8 +24,8 @@
                             {
                                 if (i < 1)
                                 {
-                                    <span class="color-orange text-capitalize"><a href="tech-category-01.html"
-                                    title="">@category.Category.Title</a></span>
+                                    <span class="color-orange text-capitalize"><a asp-controller="Blog" asp-action="Category"
+                                    asp-route-category="@category.Category.Title">@category.Category.Title</a></span>
                                 }
                                 i++;
                                 break;
@@ -28,9 +34,8 @@
                             <h3>@Model.Title</h3>
 
                             <div class="blog-meta big-meta">
-                                <small><a href="tech-single.html" title="">21 July, 2017</a></small>
-                                <small><a href="tech-author.html" title="">by Jessica</a></small>
-                                <small><a href="#" title=""><i class="fa fa-eye"></i> 2344</a></small>
+                                <small><a href="tech-single.html" title="">@Model.PublishedOn</a></small>
+                                <small><a href="tech-author.html" title="">@Model.Author.FullName</a></small>
                             </div><!-- end meta -->
 
                             <div class="post-sharing">
@@ -60,7 +65,9 @@
                                 <span>Tags</span>
                                 @foreach (var category in Model.PostCategories)
                                 {
-                                    <small><a title="@category.Category.Title">@category.Category.Title</a></small>
+                                    <small><a asp-controller="Blog" asp-action="Category"
+                                        asp-route-category="@category.Category.Title"
+                                        title="@category.Category.Title">@category.Category.Title</a></small>
                                 }
                             </div><!-- end meta -->
 
@@ -108,22 +115,6 @@
                                 <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
                                     <h4><a href="#">@Model.Author.FullName</a></h4>
                                     <p>@Model.Author.AboutMe</p>
-
-                                    @* <div class="topsocial">
-                                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i
-                                        class="fa fa-facebook"></i></a>
-                                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Youtube"><i
-                                        class="fa fa-youtube"></i></a>
-                                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Pinterest"><i
-                                        class="fa fa-pinterest"></i></a>
-                                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i
-                                        class="fa fa-twitter"></i></a>
-                                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Instagram"><i
-                                        class="fa fa-instagram"></i></a>
-                                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="Website"><i
-                                        class="fa fa-link"></i></a>
-                                        </div><!-- end social --> *@
-
                                 </div><!-- end col -->
                             </div><!-- end row -->
                         </div><!-- end author-box -->
@@ -158,28 +149,28 @@
                             <div class="row text-center">
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
                                     <a href="#" class="social-button facebook-button">
-                                        <i class="fa fa-facebook"></i>
+                                        <i class="fa-brands fa-facebook"></i>
                                         <p>27k</p>
                                     </a>
                                 </div>
 
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
                                     <a href="#" class="social-button twitter-button">
-                                        <i class="fa fa-twitter"></i>
+                                        <i class="fa-brands fa-twitter"></i>
                                         <p>98k</p>
                                     </a>
                                 </div>
 
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
                                     <a href="#" class="social-button google-button">
-                                        <i class="fa fa-google-plus"></i>
+                                        <i class="fa-brands fa-google-plus"></i>
                                         <p>17k</p>
                                     </a>
                                 </div>
 
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
                                     <a href="#" class="social-button youtube-button">
-                                        <i class="fa fa-youtube"></i>
+                                        <i class="fa-brands fa-youtube"></i>
                                         <p>22k</p>
                                     </a>
                                 </div>
