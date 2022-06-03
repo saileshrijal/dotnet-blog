@@ -95,6 +95,108 @@ namespace AliveBlog.Areas.Admin.Controllers
             return View(model);
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Edit(Guid id)
+        {
+            if (id == null)
+            {
+                return PartialView("_NotFoundAdmin");
+            }
+            var post = await _unitOfWork.Post.GetBy(p => p.Id == id);
+            if (post == null)
+            {
+                return PartialView("_NotFoundAdmin");
+            }
+            var model = new PostViewModel
+            {
+                Id = post.Id,
+                Title = post.Title,
+                Excerpt = post.Excerpt,
+                Description = post.Description,
+                FeaturedPhotoUrl = post.FeaturedImageUrl,
+                IsBanner = post.IsBanner,
+                IsPublished = post.IsPublished,
+                PublishedOn = post.PublishedOn,
+                Slug = post.Slug
+            };
+            var CategoriesList = await _unitOfWork.Category.GetAll();
+            var selectedCategoryList = await _unitOfWork.PostCategory.GetAllBy(pc => pc.PostId == model.Id);
+            model.Categories = new List<SelectListItem>();
+            model.Categories = CategoriesList.Select(x => new SelectListItem
+            {
+                Text = x.Title,
+                Value = x.Id.ToString()
+            }).ToList();
+
+            foreach (var item in model.Categories)
+            {
+                foreach (var selectedcategory in selectedCategoryList)
+                {
+                    if (item.Value == selectedcategory.CategoryId.ToString())
+                    {
+                        item.Selected = true;
+                    }
+                }
+            }
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(PostViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var userId = _userManager.GetUserId(HttpContext.User);
+                var post = new Post
+                {
+                    Id = model.Id,
+                    Title = model.Title,
+                    Excerpt = model.Excerpt,
+                    PublishedOn = model.PublishedOn,
+                    IsBanner = model.IsBanner,
+                    IsPublished = model.IsPublished,
+                    Slug = model.Slug,
+                    AuthorId = userId
+
+                };
+
+                if (model.FeaturedPhoto == null)
+                {
+                    post.FeaturedImageUrl = model.FeaturedPhotoUrl;
+                }
+                else
+                {
+                    post.FeaturedImageUrl = photoUpload(model);
+                }
+
+                var CategoriesList = await _unitOfWork.PostCategory.GetAllBy(pc => pc.PostId == model.Id);
+
+                foreach (var item in CategoriesList)
+                {
+                    await _unitOfWork.PostCategory.Delete(item.Id);
+                }
+
+                var selectedCateogries = model.Categories.Where(x => x.Selected).Select(x => x.Value).Select(Guid.Parse).ToList();
+
+                post.PostCategories = new List<PostCategory>();
+                foreach (var categoryId in selectedCateogries)
+                {
+                    post.PostCategories.Add(new PostCategory()
+                    {
+                        Post = post,
+                        CategoryId = categoryId
+                    });
+                }
+
+                _unitOfWork.Post.Edit(post);
+                await _unitOfWork.SaveAsync();
+                TempData["Success"] = "Post Updated Successfully";
+                return RedirectToAction(nameof(Index));
+            }
+            return View(model);
+        }
+
         private string photoUpload(PostViewModel model)
         {
             string UniqueFileName = "";

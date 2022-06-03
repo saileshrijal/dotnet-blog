@@ -111,6 +111,7 @@ namespace AliveBlog.Areas.Admin.Controllers
         public IActionResult Logout()
         {
             _signInManager.SignOutAsync();
+            TempData["Success"] = "You are logged out Succesfully";
             return RedirectToAction("Index", "Home", new { area = "" });
         }
 

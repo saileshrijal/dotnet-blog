@@ -34,7 +34,7 @@
                                 style="height: 100%; width: 100%; object-fit: cover; object-position: center;">
                                 }
                             </div>
-                            <div class="col-8">
+                            <div class="col-10">
                                 <h6 class="pb-2">@post.Title</h6>
                                 <p class="text-secondary">
                                     <span>@(post.IsPublished?"Published":"Draft") - @post.PublishedOn</span>
@@ -45,7 +45,18 @@
                                     }
                                 </p>
                             </div>
-                            <div class="col-2"></div>
+                            <div class="col-1 d-flex align-items-center justify-content-end">
+                                <div class="btn-group">
+                                    <a class="btn btn-secondary" asp-area="Admin" asp-controller="Post" asp-action="Edit"
+                                    asp-route-id="@post.Id"><i class="fa-solid fa-pen-to-square"></i></a>
+
+                                    <form method="post" id="deleteForm" asp-action="Delete" asp-route-id="@post.Id">
+                                        <button type="submit" id="btn-submit" class="btn btn-danger"><i
+                                            class="fa-solid fa-trash"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

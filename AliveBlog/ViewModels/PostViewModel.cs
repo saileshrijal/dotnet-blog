@@ -28,5 +28,7 @@ namespace AliveBlog.ViewModels
 
         [Display(Name = "Banner")]
         public bool IsBanner { get; set; }
+
+        public string? FeaturedPhotoUrl { get; set; }
     }
 }
