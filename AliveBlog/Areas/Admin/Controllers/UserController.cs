@@ -123,6 +123,11 @@ namespace AliveBlog.Areas.Admin.Controllers
                 {
                     user.ProfilePictureUrl = photoUpload(model);
                 }
+                if (model.NewPassword != null)
+                {
+                    PasswordHasher<ApplicationUser> ph = new PasswordHasher<ApplicationUser>();
+                    user.PasswordHash = ph.HashPassword(user, model.NewPassword);
+                }
                 await _userManager.UpdateAsync(user);
                 TempData["Success"] = "Profile Updated Successfully";
                 return RedirectToAction(nameof(Profile));
@@ -156,11 +161,6 @@ namespace AliveBlog.Areas.Admin.Controllers
                 {
                     TempData["Success"] = "You are logged in successfully";
                     return RedirectToAction(nameof(Index), "Dashboard", new { area = "Admin" });
-                }
-                else
-                {
-                    TempData["Error"] = "Incorrect UserName or Password";
-                    return View(model);
                 }
             }
             return View(model);
