@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Fbb26TziWcHut9v52QQngo/uMGmCUQG9jGZdWytVyf4=",
+  "Hash": "NfdDpJGPED4zFvXe83XONraVBe5i6KKM15djGQwj+pk=",
   "Source": "AliveBlog",
   "BasePath": "_content/AliveBlog",
   "Mode": "Default",
@@ -1428,6 +1428,23 @@
       "OriginalItemSpec": "wwwroot\\FeaturedImages\\859b3104-39c0-4292-8964-6d1067cb3630_Screenshot (90).png"
     },
     {
+      "Identity": "D:\\AliveCoder\\Dotnet\\dotnet-blog\\AliveBlog\\wwwroot\\FeaturedImages\\872fcbeb-c578-4ba4-93d1-a00a3d73de19_code-1839406_1920.jpg",
+      "SourceId": "AliveBlog",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\AliveCoder\\Dotnet\\dotnet-blog\\AliveBlog\\wwwroot\\",
+      "BasePath": "_content/AliveBlog",
+      "RelativePath": "FeaturedImages/872fcbeb-c578-4ba4-93d1-a00a3d73de19_code-1839406_1920.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\FeaturedImages\\872fcbeb-c578-4ba4-93d1-a00a3d73de19_code-1839406_1920.jpg"
+    },
+    {
       "Identity": "D:\\AliveCoder\\Dotnet\\dotnet-blog\\AliveBlog\\wwwroot\\FeaturedImages\\95fd6836-e3e6-4507-afcd-aa04c3d3504c_Screenshot (92).png",
       "SourceId": "AliveBlog",
       "SourceType": "Discovered",
@@ -1494,6 +1511,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\FeaturedImages\\9c6391a0-705a-4419-a524-4234202c21a4_Screenshot (88).png"
+    },
+    {
+      "Identity": "D:\\AliveCoder\\Dotnet\\dotnet-blog\\AliveBlog\\wwwroot\\FeaturedImages\\9ce89640-e4ff-4371-baa3-0ba3e085ef28_hands-820272_1920.jpg",
+      "SourceId": "AliveBlog",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\AliveCoder\\Dotnet\\dotnet-blog\\AliveBlog\\wwwroot\\",
+      "BasePath": "_content/AliveBlog",
+      "RelativePath": "FeaturedImages/9ce89640-e4ff-4371-baa3-0ba3e085ef28_hands-820272_1920.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\FeaturedImages\\9ce89640-e4ff-4371-baa3-0ba3e085ef28_hands-820272_1920.jpg"
     },
     {
       "Identity": "D:\\AliveCoder\\Dotnet\\dotnet-blog\\AliveBlog\\wwwroot\\FeaturedImages\\a61e2532-d291-4ea2-9042-70eef6b09c84_Screenshot (93).png",
@@ -1581,6 +1615,23 @@
       "OriginalItemSpec": "wwwroot\\FeaturedImages\\cd607b4a-d287-4bd8-850b-d03b2897d648_Screenshot (91).png"
     },
     {
+      "Identity": "D:\\AliveCoder\\Dotnet\\dotnet-blog\\AliveBlog\\wwwroot\\FeaturedImages\\cd8a31e6-1e2f-4c52-b5b1-0ba2cc362306_macbook-459196_1920.jpg",
+      "SourceId": "AliveBlog",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\AliveCoder\\Dotnet\\dotnet-blog\\AliveBlog\\wwwroot\\",
+      "BasePath": "_content/AliveBlog",
+      "RelativePath": "FeaturedImages/cd8a31e6-1e2f-4c52-b5b1-0ba2cc362306_macbook-459196_1920.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\FeaturedImages\\cd8a31e6-1e2f-4c52-b5b1-0ba2cc362306_macbook-459196_1920.jpg"
+    },
+    {
       "Identity": "D:\\AliveCoder\\Dotnet\\dotnet-blog\\AliveBlog\\wwwroot\\FeaturedImages\\DefaultFeaturedImage.jpg",
       "SourceId": "AliveBlog",
       "SourceType": "Discovered",
@@ -1596,6 +1647,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\FeaturedImages\\DefaultFeaturedImage.jpg"
+    },
+    {
+      "Identity": "D:\\AliveCoder\\Dotnet\\dotnet-blog\\AliveBlog\\wwwroot\\FeaturedImages\\e7ebc8d3-5a9a-4619-b00c-358fead51c2a_laptop-2620118_1920.jpg",
+      "SourceId": "AliveBlog",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\AliveCoder\\Dotnet\\dotnet-blog\\AliveBlog\\wwwroot\\",
+      "BasePath": "_content/AliveBlog",
+      "RelativePath": "FeaturedImages/e7ebc8d3-5a9a-4619-b00c-358fead51c2a_laptop-2620118_1920.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\FeaturedImages\\e7ebc8d3-5a9a-4619-b00c-358fead51c2a_laptop-2620118_1920.jpg"
     },
     {
       "Identity": "D:\\AliveCoder\\Dotnet\\dotnet-blog\\AliveBlog\\wwwroot\\FeaturedImages\\ee189c03-c236-4877-93b7-c861e9fbbecc_Screenshot (91).png",

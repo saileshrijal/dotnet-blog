@@ -30,5 +30,10 @@ namespace AliveBlog.ViewModels
         public IFormFile? ProfilePicture { get; set; }
 
         public string? ProfilePictureUrl { get; set; }
+
+        [Display(Name = "Is Admin")]
+
+        public bool IsAdmin { get; set; }
+
     }
 }

@@ -14,13 +14,17 @@ namespace AliveBlog.Areas.Admin.Controllers
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IWebHostEnvironment _webHost;
         private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
-        public UserController(UserManager<ApplicationUser> userManager, IWebHostEnvironment webHost, SignInManager<ApplicationUser> signInManager)
+        public UserController(UserManager<ApplicationUser> userManager, IWebHostEnvironment webHost, SignInManager<ApplicationUser> signInManager, RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _webHost = webHost;
             _signInManager = signInManager;
+            _roleManager = roleManager;
         }
+
+        [Authorize(Roles = "Admin")]
         public IActionResult Index()
         {
             var users = _userManager.Users.ToList();
@@ -28,12 +32,14 @@ namespace AliveBlog.Areas.Admin.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View(new UserViewModel());
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create(UserViewModel model)
         {
             if (ModelState.IsValid)
@@ -47,9 +53,26 @@ namespace AliveBlog.Areas.Admin.Controllers
                         FirstName = model.FirstName,
                         LastName = model.LastName,
                     };
+
+                    if (!await _roleManager.RoleExistsAsync("Admin"))
+                    {
+                        await _roleManager.CreateAsync(new IdentityRole { Name = "Admin" });
+                    }
+                    if (!await _roleManager.RoleExistsAsync("Author"))
+                    {
+                        await _roleManager.CreateAsync(new IdentityRole { Name = "Author" });
+                    }
                     var result = await _userManager.CreateAsync(user, model.Password);
                     if (result.Succeeded)
                     {
+                        if (model.IsAdmin)
+                        {
+                            await _userManager.AddToRoleAsync(user, "Admin");
+                        }
+                        else
+                        {
+                            await _userManager.AddToRoleAsync(user, "Author");
+                        }
                         TempData["Success"] = "User Created Successfully";
                         return RedirectToAction(nameof(Index));
                     }

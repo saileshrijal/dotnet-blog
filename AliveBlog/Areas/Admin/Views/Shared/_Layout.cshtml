@@ -1,6 +1,7 @@
 @using Microsoft.AspNetCore.Identity
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
+@inject RoleManager<IdentityRole> IdentityRole
 
 <!DOCTYPE html>
 <html lang="en">
@@ -77,17 +78,26 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Dashboard
                         </a>
-                        <a class="nav-link" asp-area="Admin" asp-controller="Category" asp-action="Index">
-                            <div class="sb-nav-link-icon"><i class="fas fa-random"></i></div>
-                            Category
-                        </a>
+
                         <a class="nav-link" asp-area="Admin" asp-controller="Post" asp-action="Index">
                             <div class="sb-nav-link-icon"><i class="fas fa-file"></i></div>
                             Post
                         </a>
-                        <a class="nav-link" asp-area="Admin" asp-controller="User" asp-action="Index">
-                            <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
-                            Users
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a class="nav-link" asp-area="Admin" asp-controller="Category" asp-action="Index">
+                                <div class="sb-nav-link-icon"><i class="fas fa-random"></i></div>
+                                Category
+                            </a>
+
+                            <a class="nav-link" asp-area="Admin" asp-controller="User" asp-action="Index">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                                Users
+                            </a>
+                        }
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index" target="_blank">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-globe"></i></div>
+                            Visit Site
                         </a>
                     </div>
                 </div>

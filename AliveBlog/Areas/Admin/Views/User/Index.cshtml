@@ -1,4 +1,7 @@
 @model List<ApplicationUser>
+@using Microsoft.AspNetCore.Identity
+@inject RoleManager<IdentityRole> _roleManager
+@inject UserManager<ApplicationUser> _userManager
 
 @{
     ViewData["Title"] = "List Of Users";
@@ -41,6 +44,9 @@
                             </td>
                             <td>
                                 @user.Email
+                            </td>
+                            <td>
+
                             </td>
                         </tr>
                     }

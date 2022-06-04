@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace AliveBlog.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class CategoryController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;

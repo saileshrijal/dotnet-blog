@@ -45,10 +45,10 @@
                             {
                                 <li><a asp-controller="Blog" asp-action="Category"
                                     asp-route-category="@LayoutCategory.Title">@LayoutCategory.Title
-                                        @if (LayoutCategory.PostCategories != null)
-                                        {
+                                        @* @if (LayoutCategory.PostCategories != null)
+                                            {
                                             <span>(@LayoutCategory.PostCategories.Count)</span>
-                                        }
+                                            } *@
                                     </a></li>
                             }
                         </ul>

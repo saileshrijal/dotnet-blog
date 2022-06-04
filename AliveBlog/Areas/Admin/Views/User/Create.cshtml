@@ -36,6 +36,12 @@
                                     <span asp-validation-for="Password"></span>
                                 </div>
 
+                                <div class="mb-3">
+                                    <input type="checkbox" class="custom-checkbox" asp-for="IsAdmin">
+                                    <label asp-for="IsAdmin"></label>
+                                    <span asp-validation-for="IsAdmin"></span>
+                                </div>
+
                                 <div class="row">
                                     <div class="col-9">
                                         <input type="submit" value="Save" class="btn btn-success form-control">
